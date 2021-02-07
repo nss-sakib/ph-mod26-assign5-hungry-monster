@@ -1,16 +1,27 @@
+// Search matched meal using input data
 const SearchResult = () => {
-
     const searchItem = document.getElementById('search-meal').value;
     fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchItem}`)
         .then(response => response.json())
         .then(data => displayResult(data.meals))
         .catch(error => foundNoItem())
 }
-const foundNoItem = () => {
 
+// Notify if no matched meal found
+const foundNoItem = () => {
+    const searchedMeals = document.getElementById('detail-info');
+    const alert = `
+    <h1 style="text-align:center">No item Found!</h1>
+    <ol>
+    <li>Check your internet is connected</li>
+    <li>Or try with another keyword</li>
+    </ol>
+    `
+    searchedMeals.innerHTML = alert;
 }
+
+// Display matched meal on UI
 const displayResult = (mealData) => {
-    console.log(mealData);
     const searchedMeals = document.getElementById('searched-meals');
     mealData.forEach(mealItem => {
         const meal = document.createElement('div')
@@ -22,8 +33,6 @@ const displayResult = (mealData) => {
         `;
         meal.innerHTML = mealName;
         searchedMeals.appendChild(meal);
-        console.log(mealItem.strMeal);
-
         document.getElementById(`${mealItem.strMeal}`).addEventListener('click', function () {
             fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${mealItem.strMeal}`)
                 .then(response => response.json())
@@ -32,34 +41,22 @@ const displayResult = (mealData) => {
     });
 };
 
+// Display detail about clicked meal
 const showDetails = (clickedMeal) => {
     const item = clickedMeal[0];
+    const detailInfo = document.getElementById('detail-info');
     const mealBasicInfo = `
         <img style="width:200px" src="${item.strMealThumb}">
         <h3>Ingredients:</h3>
         `;
-    const detailInfo = document.getElementById('detail-info');
     detailInfo.innerHTML = mealBasicInfo;
-    const ingredients = document.createElement('ul');
-    const li1 = document.createElement('li');
-    const listInfo = `
-    <li>${item.strIngredient1}</li>
-    <li>${item.strIngredient2}</li>
-    <li>${item.strIngredient3}</li>
-    <li>${item.strIngredient4}</li>
-    <li>${item.strIngredient5}</li>
-    <li>${item.strIngredient6}</li>
-    <li>${item.strIngredient7}</li>
-    <li>${item.strIngredient8}</li>
-    <li>${item.strIngredient9}</li>
-    <li>${item.strIngredient10}</li>
-    <li>${item.strIngredient10}</li>
-    <li>${item.strIngredient11}</li>
-    <li>${item.strIngredient12}</li>
-    <li>${item.strIngredient17}</li>
-    
-    `
-    ingredients.innerHTML = listInfo;
-    detailInfo.appendChild(ingredients);
+    const ingredientList = document.createElement('ul');
+    for (let i = 1; i <= 20; i++) {
+        if (item[`strIngredient${i}`]) {
+            const ingredient = document.createElement('li');
+            ingredient.innerText = item[`strIngredient${i}`];
+            ingredientList.appendChild(ingredient);
+        }
+    }
+    detailInfo.appendChild(ingredientList);
 };
-

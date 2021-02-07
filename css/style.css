@@ -34,8 +34,6 @@ h1 {
     font-size: 17px;
     border: 1px solid grey;
     border-left: none;
-    /* Prevent double borders */
-    cursor: pointer;
 }
 
 .search-field button:hover {
@@ -48,6 +46,16 @@ h1 {
     display: table;
 }
 
+.meal {
+    border-radius: 20px;
+    text-align: center;
+    background-color: rgb(243, 243, 243);
+}
+
+.meal-image {
+    width: 100%;
+}
+
 #detail-info {
     padding: 50px;
 }
@@ -57,14 +65,4 @@ h1 {
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 80px;
     padding: 50px;
-}
-
-.meal {
-    border-radius: 20px;
-    text-align: center;
-    background-color: rgb(243, 243, 243);
-}
-
-.meal-image {
-    width: 100%;
 }

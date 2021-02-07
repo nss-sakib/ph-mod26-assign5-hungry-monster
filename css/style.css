@@ -1,0 +1,70 @@
+* {
+    box-sizing: border-box;
+    margin: 0 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+section {
+    padding: 100px;
+}
+
+h1 {
+    padding: 5%;
+}
+
+/* Style the search field */
+
+.search-field input[type=text] {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    width: 80%;
+    background: #f1f1f1;
+}
+
+/* Style the submit button */
+
+.search-field button {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    background: #ff6347;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none;
+    /* Prevent double borders */
+    cursor: pointer;
+}
+
+.search-field button:hover {
+    background: #ffbf47;
+}
+
+.search-field::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+#detail-info {
+    padding: 50px;
+}
+
+#searched-meals {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 80px;
+    padding: 50px;
+}
+
+.meal {
+    border-radius: 20px;
+    text-align: center;
+    background-color: rgb(243, 243, 243);
+}
+
+.meal-image {
+    width: 100%;
+}

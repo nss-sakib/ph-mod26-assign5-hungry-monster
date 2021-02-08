@@ -1,9 +1,9 @@
-// Declared some global variables to avoid multiple scripting
+// Declaring some global variables to avoid multiple scripting
 const foundedMeals = document.getElementById('founded-meals');
 const detailInfo = document.getElementById('detail-info');
 const notFound = document.getElementById("not-found");
 
-// Search matched meal using input data
+// Searching matched meal using input data
 const SearchResult = () => {
     const searchItem = document.getElementById('search-meal').value;
     fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchItem}`)

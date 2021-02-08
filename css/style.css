@@ -58,6 +58,7 @@ h2{
     border-radius: 20px;
     text-align: center;
     background-color: rgb(243, 243, 243);
+    overflow: hidden;
 }
 
 .meal-image {

@@ -10,6 +10,14 @@ section {
 
 h1 {
     padding: 5%;
+    text-align:center;
+    color: tomato;
+    font-size: 3em;
+}
+h2{
+    padding: 5%;
+    text-align:center;
+    color: rgb(0, 0, 100);
 }
 
 /* Style the search field */
@@ -57,12 +65,19 @@ h1 {
 }
 
 #detail-info {
-    padding: 50px;
+    padding: 5%;
+    margin: auto;
+    width: 80%;
 }
 
-#searched-meals {
+#founded-meals {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 80px;
     padding: 50px;
+    clear: left;
+}
+
+#not-found{
+    display: none;
 }

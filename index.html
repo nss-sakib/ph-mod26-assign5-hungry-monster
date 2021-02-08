@@ -11,20 +11,28 @@
 
 <body>
     <section>
-        <h1 style="text-align:center; color: tomato">Welcome to Hungry Monster</h1>
+        <h1>Welcome to Hungry Monster</h1>
 
         <div class="search-field">
             <input id="search-meal" type="text" placeholder="Search Meal" name="search">
             <button type="submit" onclick="SearchResult()">Search</button>
         </div>
 
+        <div id="not-found">
+            <h1 style="color: red; font-size: 2em;">Not Found Anything!</h1>
+            <ol>
+                <li>Please, search with another keyword</li>
+                <li>Or, check your internet connection</li>
+            </ol>
+        </div>
+
         <div id="detail-info">
         </div>
 
-        <div id="searched-meals">
+        <div id="founded-meals">
         </div>
     </section>
-    
+
     <script src="js/script.js"></script>
 </body>
 
